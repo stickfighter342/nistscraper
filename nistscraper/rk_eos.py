@@ -20,7 +20,7 @@ def eos(p, t, v):
     return p + a / (pow(t, 0.5) * v * (v + b)) - r * t / (v - b)
 
 
-a = fsolve(eos, 0, args=(200,));
+a = fsolve(eos, 0, args=(200, 300));
 print(a)
 
 
