@@ -17,7 +17,7 @@ def ideal_gas_law(T, Vm):
 def cTOall(value, key):
     if (key == "temp"):  
         return [value, value * 1.8 + 32, value + 273.15, (value + 273.15) * 1.8]
-    else if (key == "pres"):
+    elif (key == "pres"):
         return [value, value * 101.325, value * 1.01325, value * 14.6959]
     
 
@@ -28,7 +28,7 @@ def arrTemp(initial, temp):
         temp -= 273.15
     elif (initial == "f"):
         temp = (temp - 32) / 1.8
-    return cTOall(temp)    
+    return cTOall(temp, "temp")    
 
 
 def convTemp(initial, temp, convert):
@@ -42,7 +42,7 @@ def convTemp(initial, temp, convert):
     return vec[0]
 
 def arrPres(initial, pres):
-    if (initial == "psig"):
+    if (initial == "psi"):
         pres /= 14.6959
     elif (initial == "kPa"):
         pres /= 101.325
@@ -52,7 +52,7 @@ def arrPres(initial, pres):
     
 def convPres(initial, pres, convert):
     vec = arrPres(initial, pres)
-    if (convert == "psig"):
+    if (convert == "psi"):
         return vec[3]
     elif (convert == "bar"):
         return vec[2]
