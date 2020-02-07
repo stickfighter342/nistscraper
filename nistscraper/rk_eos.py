@@ -18,18 +18,25 @@ def eos(P, T, v):
     
     Parameters
     ----------
-    P: Pressure in atm (int or list-like object)
-    
+    P: Pressure in atm (double or list-like object)
+    T: Temperature in Kelvin (a constant - double or int)
+    v: Volume in liters (a constant - double or int)
+        
     Returns
     -------
-    res:
+    double
+        residual of Redlich-Kwong equation of state
     
     Examples
     --------
+    P = 3.0 atm
+    T = 273.15 K
+    v = 10 L
+    Input: eos(3, 273.15, 10) 
+    Output: 0.7606994048189883
     
-    y = data[0]
-    t = y[0]
-    v = y[1]"""
+    
+    """
     Tc = 126.2
     Pc = 33.5    
     a = 0.42748*Rgas**2*Tc**2.5/Pc
@@ -38,8 +45,8 @@ def eos(P, T, v):
     return res
 
 
-a = fsolve(eos, 0, args=(200, 300));
-print(a)
+a = fsolve(eos, 0, args=(273.15, 4));
+print(eos(3, 273.15, 10))
 
 
 def errorIdeal(rk, igl):
