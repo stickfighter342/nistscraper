@@ -20,7 +20,7 @@ driver.get('https://webbook.nist.gov/cgi/cbook.cgi?Formula=N2&NoIon=on&Units=SI'
 content = driver.page_source
 soup = BeautifulSoup(content, 'html.parser')
 #print(soup.prettify())
-for a in soup.find_all('li', attrs = {'li'}):
+for a in soup.find_all('main'):
     name=a.find('div', attrs={'class':'_3wU53n'})
-    price=a.find('div', attrs={'class':'_1vC4OE _2rQ-NK'})
+    price=a.find('div', attrs={'class': '_1vC4OE _2rQ-NK'})
     print(a)
